@@ -1,8 +1,9 @@
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 
 const router = new Router();
+
 router.post("/", async (ctx) => {
-    const body = await ctx.request.body({ type: "text" }).value;
+    const body = await ctx.request.body({ type: "form" });
     const request = new Request("http://api.feieyun.cn/Api/Open/", {
         method: "POST",
         body: body,
